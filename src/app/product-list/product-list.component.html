@@ -1,0 +1,25 @@
+<table class="table table-striped ">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Delivery</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Star Rating</th>
+      </tr>
+    </thead>
+    <tbody *ngIf='productList && productList.length'>
+      <tr (click) = 'showProduct()' *ngFor=' let product of productList'>
+        <td scope="row">
+            <img  [height]='imgHeight' src='https://slimages.macysassets.com/is/image/MCY/products/9/optimized/{{product.image}}?$filtersm$&wid=99&hei=146'>
+           
+            {{product.name | uppercase}}</td>
+        <td>{{product.delivery}}</td>
+        <td>{{product.selectedQuantity}}</td>
+        <td>{{product.price | currency:USD}}</td>
+        <td><star-rating [rating]='product.starRating'></star-rating></td>
+      </tr>
+
+    </tbody>
+  </table>
+  
